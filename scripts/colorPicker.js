@@ -215,8 +215,8 @@ function ColorPicker(arg) {
 	}
 
 	function updateOnPick(e) {
-		var newX = e.clientX - bound.offsetLeft - 5;
-		var newY = e.clientY - bound.offsetTop - boundHandle.offsetHeight - 5;
+		var newX = e.pageX - bound.offsetLeft - 5;
+		var newY = e.pageY - bound.offsetTop - boundHandle.offsetHeight - 5;
 
 		update_Output_On_Handle_Position_Change(newX, newY);
 	}

@@ -51,32 +51,37 @@ add the following code in your body tag , where you want to use the color-picker
 append the following ```script``` tag after the above three ```script``` tags
 ```html
 <script>
-		var slider = $('#slider');
-		var picker = $('#huePicker');
-		var pickHandle = $('.handle')[0];
-		var slideHandle = $('.handle')[1];
-		var outputOptions = $("#colorOption");
-		var output = $('#output');
-		var bound = $('#picker');
-		var boundHandle = $('#drag');
-		var values = {
-			picker: picker,
-			pickHandle: pickHandle,
-			slider: slider,
-			slideHandle: slideHandle,
-			bound: bound,
-			boundHandle: boundHandle,
-			output: output,
-			options: outputOptions
-		}
+////these are not jquery tags
+///this document uses its own lil_query
+///to shorten the code
+/// lil_query is included in draggable.min.js
+var slider = $('#slider'); 
+var picker = $('#huePicker');
+var pickHandle = $('.handle')[0];
+var slideHandle = $('.handle')[1];
+var outputOptions = $("#colorOption");
+var output = $('#output');
+var bound = $('#picker');
+var boundHandle = $('#drag');
+var values = {
+	picker: picker,
+	pickHandle: pickHandle,
+	slider: slider,
+	slideHandle: slideHandle,
+	bound: bound,
+	boundHandle: boundHandle,
+	output: output,
+	options: outputOptions
+}
 
-		function cb(value) {
-			$('#on').style.background = value;
-		}
-		$('#on').addEventListener('click', function() {
-			$('#picker').style.display = '';
-			values.onchange = cb;
-		});
-		ColorPicker(values);
+function cb(value) {
+	$('#on').style.background = value;
+}
+$('#on').addEventListener('click', function() {
+	$('#picker').style.display = '';
+	values.onchange = cb;///onchange is a callback function which get fired when color got change
+	 //use this to update the color to the element you want
+});
+ColorPicker(values);
 </script>
 ```

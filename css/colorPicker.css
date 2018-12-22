@@ -1,0 +1,123 @@
+#picker {
+	font-family: sans-serif;
+	width: 250px;
+	height: auto;
+	position: absolute;
+	background: #2b2b2b;
+	transition: .05s;
+	border-radius: 5px;
+	border: 2px solid #2b2b2b;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+p {
+	position: relative;
+	width: 100%;
+	height: 30px;
+	color: white;
+	box-sizing: border-box;
+	padding-top: 7px;
+	padding-left: 7px;
+	transition: .05s;
+	cursor: move;
+}
+
+span {
+	position: absolute;
+	right: 15px;
+	cursor: pointer;
+}
+
+#colorPicker {
+	width: 250px;
+	height: auto;
+	box-sizing: border-box;
+	background: #2b2b2b;
+}
+
+.group {
+	margin: 0px auto;
+}
+canvas {
+	cursor: pointer;
+}
+#pick {
+	width: 250px;
+	height: 250px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+#hue {
+	width: 100%;
+	height: auto;
+	position: relative;	
+	box-sizing: border-box;
+	margin: 15px 22.5px;
+}
+
+.handle {
+	cursor: move;
+	
+}
+
+#pick .handle {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background: transparent;
+	border: 2px solid black;
+	position: absolute;
+	box-shadow: 0px 0px 0px 2px #fff;
+}
+
+#hue .handle {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: transparent;
+	border: 2px solid white;
+	border-radius: 20px;
+	left: -11px;
+	top: -1px;
+	box-shadow: 0px 0px 2px #000;
+}
+#slider{
+	border-radius: 22px;
+}
+
+#on {
+	width: 50px;
+	height: 50px;
+	background: black;
+	margin: 10px;
+}
+.group2{
+	margin: 0px 22.5px;
+	padding-bottom: 12px;
+}
+select{
+	width: 65px;
+	height: auto;
+	background: #4b4b4b;
+	padding: 4px 7px;
+	border: 0px;
+	border-radius: 22px;
+	color: white;
+}
+option{
+	background: #4b4b4b;
+}
+#output{
+	float: right;
+	width: 120px;
+	border-radius: 15px;
+	background: #4b4b4b;
+	border: 0px;
+	color: white;
+	padding: 5px 0px;
+	text-indent: 15px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>Drag Events</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/colorPicker.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div id="picker">
+		<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display='none'">X</span></p>
+		<div id="colorPicker">
+			<div class="group group1">
+				<div id="pick">
+					<canvas id="huePicker" width="250" height="250"></canvas>
+					<div class="handle"></div>
+				</div>
+				<div id="hue">
+					<canvas id="slider" width="205" height="20"></canvas>
+					<div class="handle"></div>
+				</div>
+			</div>
+			<div class="group group2">
+				<select name="colorOption" id="colorOption">
+					<option value="hex" selected>HEX</option>
+					<option value="rgb">RGB</option>
+					<option value="hsl">HSL</option>
+				</select>
+				<input id="output" type="text" value="#222222">
+			</div>
+		</div>
+	</div>
+
+	<div id="on"></div>
+	<script src="scripts/min.js/draggable.min.js"></script>
+	<script src="scripts/min.js/colorType.min.js"></script>
+	<script src="scripts/colorPicker.js"></script>
+	<script>
+		var slider = $('#slider');
+		var picker = $('#huePicker');
+		var pickHandle = $('.handle')[0];
+		var slideHandle = $('.handle')[1]
+		var outputOptions = $("#colorOption");
+		var output = $('#output');
+
+		var bound = $('#picker');
+		var boundHandle = $('#drag');
+		var colorPicker = new ColorPicker({
+			picker: picker,
+			pickHandle: pickHandle,
+			slider: slider,
+			slideHandle: slideHandle,
+			bound: bound,
+			boundHandle: boundHandle,
+			output: output,
+			options: outputOptions,
+			//	add a call back function
+			onchange: cb
+		});
+
+		function cb(value) {
+			$('#on').style.background = value;
+		}
+		$('#on').addEventListener('click', function() {
+			$('#picker').style.display = '';
+		});
+	</script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
-# color-picker
+# color-picker 
 This is an online color picker you can use this in your projects. This is developed using another two libraries ```draggable.min.js``` and ```colorType.min.js```. It is very simple and easy to use this in your projects.
+You can see it live at https://codedoubt.github.io/color-picker/
 
 ![Color-Picker](/imgs/color-picker.JPG) ![Color-Picker](/imgs/color-picker-rgb.JPG)
 

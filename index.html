@@ -6,51 +6,59 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Drag Events</title>
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/colorPicker.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/colorPicker.css">
 </head>
 
 <body>
-
-	<div id="picker">
-		<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display='none'">X</span></p>
-		<div id="colorPicker">
-			<div class="group group1">
-				<div id="pick">
-					<canvas id="huePicker" width="250" height="250"></canvas>
-					<div class="handle"></div>
+	<section>
+		<h1>color-picker</h1>
+		<div class="seprator"></div>
+		<p class="desc">This is an online color picker developed by <a href="http://codedoubt.com">CodeDoubt</a>.</p>
+		<p>This is an open source library you can use it as you want.</p>
+		<p>This color two other library <span class="highlight">colorPicker.min.js</span> and <span class="highlight">draggable.min.js</span>. Both of which are also developed by <a href="http://codedoubt.com">CodeDoubt</a></p>
+		<p></p>
+		<script src="https://gist.github.com/codedoubt/ebc8bf6f4037d621a3c0d21746391529.js"></script>
+	</section>
+		<div id="on"></div>
+		<div id="picker" style="display: none">
+			<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display='none'">X</span></p>
+			<div id="colorPicker">
+				<div class="group group1">
+					<div id="pick">
+						<canvas id="huePicker" width="250" height="250"></canvas>
+						<div class="handle"></div>
+					</div>
+					<div id="hue">
+						<canvas id="slider" width="205" height="20"></canvas>
+						<div class="handle"></div>
+					</div>
 				</div>
-				<div id="hue">
-					<canvas id="slider" width="205" height="20"></canvas>
-					<div class="handle"></div>
+				<div class="group group2">
+					<select name="colorOption" id="colorOption">
+						<option value="hex" selected>HEX</option>
+						<option value="rgb">RGB</option>
+						<option value="hsl">HSL</option>
+					</select>
+					<input id="output" type="text" value="#ffffff">
 				</div>
-			</div>
-			<div class="group group2">
-				<select name="colorOption" id="colorOption">
-					<option value="hex" selected>HEX</option>
-					<option value="rgb">RGB</option>
-					<option value="hsl">HSL</option>
-				</select>
-				<input id="output" type="text" value="#222222">
 			</div>
 		</div>
-	</div>
-
-	<div id="on"></div>
+<!--		-->
 	<script src="scripts/min.js/draggable.min.js"></script>
 	<script src="scripts/min.js/colorType.min.js"></script>
 	<script src="scripts/colorPicker.js"></script>
+<!--	<script src="scripts/min.js/colorPicker.min.js"></script>-->
 	<script>
 		var slider = $('#slider');
 		var picker = $('#huePicker');
 		var pickHandle = $('.handle')[0];
-		var slideHandle = $('.handle')[1]
+		var slideHandle = $('.handle')[1];
 		var outputOptions = $("#colorOption");
 		var output = $('#output');
-
 		var bound = $('#picker');
 		var boundHandle = $('#drag');
-		var colorPicker = new ColorPicker({
+		var values = {
 			picker: picker,
 			pickHandle: pickHandle,
 			slider: slider,
@@ -58,17 +66,17 @@
 			bound: bound,
 			boundHandle: boundHandle,
 			output: output,
-			options: outputOptions,
-			//	add a call back function
-			onchange: cb
-		});
+			options: outputOptions
+		}
 
 		function cb(value) {
 			$('#on').style.background = value;
 		}
 		$('#on').addEventListener('click', function() {
 			$('#picker').style.display = '';
+			values.onchange = cb;
 		});
+		ColorPicker(values);
 	</script>
 </body>
 

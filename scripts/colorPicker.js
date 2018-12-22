@@ -97,8 +97,8 @@ function ColorPicker(arg) {
 		//5 is also defined in draggable editor
 		//if you change the value there change the value here to 
 		// make user offset is proper
-		var newX = e.clientX - bound.offsetLeft - 5;
-		var newY = e.clientY - bound.offsetTop - boundHandle.offsetHeight - 5;
+		var newX = e.pageX - bound.offsetLeft - 5;
+		var newY = e.pageY - bound.offsetTop - boundHandle.offsetHeight - 5;
 
 		//update the position of canvas handle when button is clicked
 		updateCanvasHandlePosition(newX, newY);

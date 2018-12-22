@@ -1,10 +1,27 @@
 body{
-	margin: 22px;
+	font-family: sans-serif;
+	
 }
-
+h1{
+	font-size: 4rem;
+}
+h2{
+	font-size: 3rem;
+}
 #on{
-	width: 50px;
-	height: 50px;
+	width: 200px;
+	height: 200px;
 	background: black;
-	margin: 10px;
+}
+section{
+	width: 70%;
+	margin: 0px auto;
+}
+.head{
+	padding: 20px 0px;
+
+}
+p{
+	line-height: 1.6rem;
+	font-size: 1.1rem;
 }

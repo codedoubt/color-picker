@@ -5,19 +5,19 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Drag Events</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/colorPicker.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,701,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/colorPicker.min.css">
 </head>
 
 <body>
 	<header>
 		<nav>
 			<ul>
-				<li><a href="http://codedoubt.com/"><img src="imgs/codedoubt-logo-blue.svg" height="24px" alt=""></a></li>
-				<li><a href=""><span class="bold">CODE</span>DOUBT</a></li>
-				<li class="github"><a href=""><img height="32px" src="imgs/GitHub_Logo_White.png" alt=""></a></li>
+				<li><a href="http://codedoubt.com/" target="_blank"><img src="imgs/codedoubt-logo-blue.svg" height="24px" alt=""></a></li>
+				<li><a href="http://codedoubt.com/" target="_blank"><span class="bold">CODE</span>DOUBT</a></li>
+				<li class="github"><a href="https://github.com/codedoubt/color-picker" target="_blank">See it on GitHub</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -25,22 +25,23 @@
 	<div class="dummy"></div>
 
 	<div class="sidebar">
-		<h1 class="head">color-picker docs</h1>
+		<h1 class="head">Color Picker Docs</h1>
 		<ul>
+			<li><a href="#testing">Test Color Picker</a></li>
 			<li><a href="#intro">Introduction</a></li>
-			<li><a href="#step1">Step1</a></li>
-			<li><a href="#step2">Step2</a></li>
-			<li><a href="#step3">Step3</a></li>
+			<li><a href="#step1">Step1:- Little jQuery</a></li>
+			<li><a href="#step2">Step2:- Layout of the Picker</a></li>
+			<li><a href="#step3">Step3:- Making Picker Logical</a></li>
 			<br>
 			<br>
-			<h2 class="head">Other Libraries</h2>
-			<li><a href="">draggable</a></li>
+			<h2 class="head">Other Libraries Used</h2>
+			<li><a href="https://github.com/codedoubt/draggable" target="_blank">draggable</a></li>
 		</ul>
 	</div>
 	<div class="container">
-		<section class="first">
-			<div id="first"></div>
-			<div id="second"></div>
+		<section class="first" id="testing">
+			<div id="first">Click Me!</div>
+			<div id="second">Or Me!!</div>
 			<div id="picker" style="display: none;">
 				<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display = 'none'">X</span></p>
 				<div id="colorPicker">
@@ -65,61 +66,79 @@
 				</div>
 			</div>
 		</section>
-		<section>
-			<h1>color-picker</h1>
-			<div class="seprator"></div>
-			<p class="desc">This is an online color picker developed by <a href="http://codedoubt.com">CodeDoubt</a>.</p>
-			<p>This is an open source library you can use it as you want.</p>
-			<p>This color two other library <span class="highlight">colorPicker.min.js</span> and <span class="highlight">draggable.min.js</span>. Both of which are also developed by <a href="http://codedoubt.com">CodeDoubt</a></p>
-			<p></p>
-			<script src="https://gist.github.com/codedoubt/ebc8bf6f4037d621a3c0d21746391529.js"></script>
+		<section id="intro">
+			<h1>Color Picker</h1>
+			<p class="desc">This is an online color picker developed by <a href="http://codedoubt.com">CodeDoubt</a>.
+				This is an open source library you can use it as you want. This Color Picker use one other library <code>draggable.min.js</code> to make color picker logical dragging. Follow the steps to implement this color picker in your own project.
+			</p>
+		</section>
+		<section id="step1">
+			<h2>Step1 :- Little jQuery</h2>
+			<p>This step is just to inform that this document uses Lil_Query for the document. No need to add the code in your file because it is already included in <code>colorpicker.js</code> and <code>colorpicker.min.js</code> library. The contnet of the <code>little jQuery</code> is as following:-</p>
+			<script src="https://gist.github.com/codedoubt/3c7c3641576843032aabd9192828e539.js" ></script>
+		</section>
+		<section id="step2">
+			<h2 title="layout of the picker">Step2 :- Layout of the Picker</h2>
+			<p>The code below shows the layout of the color picker you can copy and just paste in your html. If you modify the name of <code>id</code> make sure you modify the code in <code>colorPicker.css</code> also. First two lines are added to showcase the editor. If you modify the name of first two <code>div</code> make sure works fine. You can add as many elements as you want but make sure you add their relative script as added for these two in <code>Step3</code>.</p>
+			<script src="https://gist.github.com/codedoubt/ebc8bf6f4037d621a3c0d21746391529.js" ></script>
+		</section>
+		<section id="step3">
+			<h2>Step3 :- Making Picker Logical</h2>
+			<p>Add the first line to your <code>&lt;head&gt;</code> to make sure the layout of the picker is as we want. Now to make the <code>color picker</code> logical add <code>colorPicker.min.js</code> to your <code>script/min.js</code> folder and append the following code before your <code>&lt;body&gt;</code> tag ends. Note that this library uses <a href="https://github.com/codedoubt/draggable"><code>draggable.min.js</code></a> make you add that library to your code for colorPicker <span title="color changing draggable elements" >handle</span> to work.</p>
+			<script src="https://gist.github.com/codedoubt/8332782a6b47d88a1b4b1a4a65a58b40.js" ></script>
 		</section>
 
 	</div>
+	<footer>
+		<p>&copy; 2018-19 CodeDoubt</p>
+		<ul>
+			<li><a href="https://twitter.com/tweetcodedoubt">Twitter</a></li>
+			<li><a href="https://github.com/codedoubt">Github</a></li>
+			<li><a href="https://codedoubt.com">CodeDoubt</a></li>
+		</ul>
+	</footer>
 	<script src="scripts/min.js/draggable.min.js"></script>
-	<script src="scripts/min.js/colorType.min.js"></script>
-	<!--	<script src="scripts/min.js/colorPicker.min.js"></script>-->
-	<script src="scripts/colorPicker.js"></script>
+	<script src="scripts/min.js/colorPicker.min.js"></script>
 	<script>
-		var slider = $('#slider');
-		var picker = $('#huePicker');
-		var pickHandle = $('.handle')[0];
-		var slideHandle = $('.handle')[1];
-		var outputOptions = $("#colorOption");
-		var output = $('#output');
-		var bound = $('#picker');
-		var boundHandle = $('#drag');
-		var values = {
-			picker: picker,
-			pickHandle: pickHandle,
-			slider: slider,
-			slideHandle: slideHandle,
-			bound: bound,
-			boundHandle: boundHandle,
-			output: output,
-			options: outputOptions,
+		document.onreadystatechange = function() {
+			var slider = $('#slider');
+			var picker = $('#huePicker');
+			var pickHandle = $('.handle')[0];
+			var slideHandle = $('.handle')[1];
+			var outputOptions = $("#colorOption");
+			var output = $('#output');
+			var bound = $('#picker');
+			var boundHandle = $('#drag');
+			var values = {
+				picker: picker,
+				pickHandle: pickHandle,
+				slider: slider,
+				slideHandle: slideHandle,
+				bound: bound,
+				boundHandle: boundHandle,
+				output: output,
+				options: outputOptions,
+			}
+
+			function cb(value) {
+				$('#first').style.background = value;
+			}
+			$('#first').addEventListener('click', function() {
+				$('#picker').style.display = '';
+				values.onchange = cb;
+				ColorPicker(values);
+			});
+
+			function secondBG(value) {
+				$('#second').style.background = value;
+			}
+			$('#second').addEventListener('click', function() {
+
+				$('#picker').style.display = '';
+				values.onchange = secondBG;
+				ColorPicker(values);
+			});
 		}
-
-		function cb(value) {
-			$('#first').style.background = value;
-		}
-		$('#first').addEventListener('click', function() {
-			$('#picker').style.display = '';
-			values.onchange = cb;
-			ColorPicker(values);
-		});
-
-		function secondBG(value) {
-			$('#second').style.background = value;
-		}
-		$('#second').addEventListener('click', function() {
-
-			$('#picker').style.display = '';
-			values.onchange = secondBG;
-			ColorPicker(values);
-		});
-
-//		ColorPicker(values);
 	</script>
 </body>
 

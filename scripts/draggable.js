@@ -34,6 +34,7 @@ function draggable(id, arg) {
 	////adding a callback function to execute it
 	////when mouse is moving
 	var onmove = arg.onmove || function () {};
+	
 	if (!offLeft) offLeft = 0;
 	if (!offTop) offTop = 0;
 	id.style.left = offLeft + "px";

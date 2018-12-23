@@ -28,7 +28,7 @@ function ColorPicker(arg) {
 	var pick = picker.getContext('2d');
 	var slide = slider.getContext('2d');
 
-
+	log(onchange.toString());
 	//
 	//making the whole picker draggable
 	draggable(boundHandle, {
@@ -138,7 +138,7 @@ function ColorPicker(arg) {
 	function updateOutput(color) {
 		output.value = '';
 		output.value = color;
-		cb(color);
+		onchange(color);
 	}
 
 	output.addEventListener('keyup', updatePicker);

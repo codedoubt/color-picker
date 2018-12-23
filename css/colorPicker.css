@@ -13,6 +13,7 @@
 	user-select: none !important;
 	text-align: left !important;
 	line-height: 1rem;
+	z-index: 99;
 }
 
 #picker p {
@@ -27,6 +28,7 @@
 	cursor: move;
 	text-align: left;
 	line-height: 1rem;
+	margin: 0px;
 }
 
 #picker span {

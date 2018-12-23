@@ -5,50 +5,81 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Drag Events</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/colorPicker.css">
 </head>
 
 <body>
-	<section>
-		<h1>color-picker</h1>
-		<div class="seprator"></div>
-		<p class="desc">This is an online color picker developed by <a href="http://codedoubt.com">CodeDoubt</a>.</p>
-		<p>This is an open source library you can use it as you want.</p>
-		<p>This color two other library <span class="highlight">colorPicker.min.js</span> and <span class="highlight">draggable.min.js</span>. Both of which are also developed by <a href="http://codedoubt.com">CodeDoubt</a></p>
-		<p></p>
-		<script src="https://gist.github.com/codedoubt/ebc8bf6f4037d621a3c0d21746391529.js"></script>
-	</section>
-		<div id="on"></div>
-		<div id="picker" style="display: none">
-			<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display='none'">X</span></p>
-			<div id="colorPicker">
-				<div class="group group1">
-					<div id="pick">
-						<canvas id="huePicker" width="250" height="250"></canvas>
-						<div class="handle"></div>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="http://codedoubt.com/"><img src="imgs/codedoubt-logo-blue.svg" height="24px" alt=""></a></li>
+				<li><a href=""><span class="bold">CODE</span>DOUBT</a></li>
+				<li class="github"><a href=""><img height="32px" src="imgs/GitHub_Logo_White.png" alt=""></a></li>
+			</ul>
+		</nav>
+	</header>
+	<!--	dummy header to cover fixed header margin of 60px-->
+	<div class="dummy"></div>
+
+	<div class="sidebar">
+		<h1 class="head">color-picker docs</h1>
+		<ul>
+			<li><a href="#intro">Introduction</a></li>
+			<li><a href="#step1">Step1</a></li>
+			<li><a href="#step2">Step2</a></li>
+			<li><a href="#step3">Step3</a></li>
+			<br>
+			<br>
+			<h2 class="head">Other Libraries</h2>
+			<li><a href="">draggable</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<section class="first">
+			<div id="first"></div>
+			<div id="second"></div>
+			<div id="picker" style="display: none;">
+				<p id="drag">Color Picker<span onclick="this.parentNode.parentNode.style.display = 'none'">X</span></p>
+				<div id="colorPicker">
+					<div class="group group1">
+						<div id="pick">
+							<canvas id="huePicker" width="250" height="250"></canvas>
+							<div class="handle"></div>
+						</div>
+						<div id="hue">
+							<canvas id="slider" width="205" height="20"></canvas>
+							<div class="handle"></div>
+						</div>
 					</div>
-					<div id="hue">
-						<canvas id="slider" width="205" height="20"></canvas>
-						<div class="handle"></div>
+					<div class="group group2">
+						<select name="colorOption" id="colorOption">
+							<option value="hex" selected>HEX</option>
+							<option value="rgb">RGB</option>
+							<option value="hsl">HSL</option>
+						</select>
+						<input id="output" type="text" value="#ffffff">
 					</div>
-				</div>
-				<div class="group group2">
-					<select name="colorOption" id="colorOption">
-						<option value="hex" selected>HEX</option>
-						<option value="rgb">RGB</option>
-						<option value="hsl">HSL</option>
-					</select>
-					<input id="output" type="text" value="#ffffff">
 				</div>
 			</div>
-		</div>
-<!--		-->
+		</section>
+		<section>
+			<h1>color-picker</h1>
+			<div class="seprator"></div>
+			<p class="desc">This is an online color picker developed by <a href="http://codedoubt.com">CodeDoubt</a>.</p>
+			<p>This is an open source library you can use it as you want.</p>
+			<p>This color two other library <span class="highlight">colorPicker.min.js</span> and <span class="highlight">draggable.min.js</span>. Both of which are also developed by <a href="http://codedoubt.com">CodeDoubt</a></p>
+			<p></p>
+			<script src="https://gist.github.com/codedoubt/ebc8bf6f4037d621a3c0d21746391529.js"></script>
+		</section>
+
+	</div>
 	<script src="scripts/min.js/draggable.min.js"></script>
 	<script src="scripts/min.js/colorType.min.js"></script>
-	<script src="scripts/min.js/colorPicker.min.js"></script>
-<!--	<script src="scripts/min.js/colorPicker.min.js"></script>-->
+	<!--	<script src="scripts/min.js/colorPicker.min.js"></script>-->
+	<script src="scripts/colorPicker.js"></script>
 	<script>
 		var slider = $('#slider');
 		var picker = $('#huePicker');
@@ -66,17 +97,30 @@
 			bound: bound,
 			boundHandle: boundHandle,
 			output: output,
-			options: outputOptions
+			options: outputOptions,
 		}
 
 		function cb(value) {
-			$('#on').style.background = value;
+			$('#first').style.background = value;
 		}
-		$('#on').addEventListener('click', function() {
+		$('#first').addEventListener('click', function() {
 			$('#picker').style.display = '';
 			values.onchange = cb;
+			ColorPicker(values);
 		});
-		ColorPicker(values);
+
+		function secondBG(value) {
+			$('#second').style.background = value;
+		}
+		$('#second').addEventListener('click', function() {
+//			values.onchange = '';
+			ColorPicker(values);
+			$('#picker').style.display = '';
+			values.onchange = secondBG;
+			ColorPicker(values);
+		});
+
+//		ColorPicker(values);
 	</script>
 </body>
 

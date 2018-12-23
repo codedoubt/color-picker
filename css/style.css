@@ -1,27 +1,104 @@
-body{
+body {
 	font-family: sans-serif;
-	
 }
-h1{
+/*some basic typography-------------*/
+a {
+	text-decoration: none;
+}
+h1 {
 	font-size: 4rem;
 }
-h2{
+h2 {
 	font-size: 3rem;
 }
-#on{
-	width: 200px;
-	height: 200px;
+/*ending====----------------------*/
+
+/*header start -------------------*/
+header {
+	width: 100%;
+	height: 60px;
+	background: #262626;
+	box-sizing: border-box;
+	position: fixed;
+	z-index: 100;
+}
+.dummy {
+	height: 60px;
+}
+
+header ul li {
+	height: 60px;
+	box-sizing: border-box;
+	padding: 17px 10px;
+	display: inline-block;
+	float: left;
+}
+
+header li:last-child {
+	float: right;
+}
+
+header a {
+	color: white;
+	font-size: 1.5rem;
+	font-family: 'Roboto',sans-serif;
+}
+.bold{
+	font-weight: 900;
+}
+/*header ending-----------------*/
+
+/*sidebar start =========-------*/
+.head{
+	font-size: 1.5rem;
+	padding: 10px;
+	border-bottom: 1px solid #444;
+}
+.sidebar{
+	width: 20%;
+	height: calc(100vh - 60px);
+	position: fixed;
+	top: 60px;
+	left: 0px;
+	background: #313131;
+	box-sizing: border-box;
+	color: white;
+}
+.sidebar li{
+	padding: 10px 0px;
+}
+.sidebar li:hover{
+	background: #111;
+}
+.sidebar a{
+	color: white;
+	font-size: 1.1rem;
+	padding: 10px;
+}
+/*sidebar ending----------------*/
+.container {
+	width: 80%;
+	float:right;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+/*ending====================*/
+
+/*section start*/
+section{
+	padding: 0px 40px;
+	padding-top: 100px;
+}
+section.first{
+	height: 300px;
+}
+/*section start*/
+#first, #second{
+	width: 150px;
+	height: 150px;
 	background: black;
 }
-section{
-	width: 70%;
-	margin: 0px auto;
-}
-.head{
-	padding: 20px 0px;
-
-}
-p{
-	line-height: 1.6rem;
-	font-size: 1.1rem;
+#picker{
+	top: 160px;
+	right: 40px;
 }
